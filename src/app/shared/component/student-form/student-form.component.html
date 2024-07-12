@@ -1,0 +1,68 @@
+<mat-card class="mt-4 bg-info text-white">
+    <mat-card-content>
+       <form #stdForm="ngForm" (ngSubmit)="onstdAdd($event)">
+        <div class="form-group">
+            <label for="fname">First Name*</label>
+            <input type="text" 
+            class="form-control" 
+            required
+            pattern="[a-zA-z]+"
+            name="fname" 
+            #fname="ngModel" 
+            ngModel>
+           <span class="text-danger" *ngIf="fname.touched && fname.hasError('required')">
+             It is required field
+           </span>
+           <span class="text-danger" *ngIf="fname.dirty && fname.hasError('pattern')">
+             special character and numbers are not allowed
+           </span>
+        </div>
+        <div class="form-group">
+            <label for="lname">Last Name*</label>
+            <input type="text" 
+            class="form-control"  
+            name="lname"  
+            required
+            pattern="[a-zA-z]+"
+            #lname="ngModel" 
+            ngModel>
+            <span class="text-danger" *ngIf="lname.touched && lname.hasError('required')">
+                It is required field
+              </span>
+              <span class="text-danger" *ngIf="lname.dirty && lname.hasError('pattern')">
+                special character and numbers are not allowed
+              </span>
+        </div>
+        <div class="form-group">
+            <label for="email">Email*</label>
+            <input type="text" 
+            class="form-control" 
+            required 
+            pattern="[a-zA-Z0-9.%+-]+@[a-zA-Z0-9-.]+[a-zA-Z]{2,}"
+            name="email" 
+            #email="ngModel" 
+            ngModel>
+            <span class="text-danger" *ngIf="email.touched && email.hasError('pattern')">
+                Invalid email pass
+              </span>
+        </div>
+        <div class="form-group">
+            <label for="contact">Contact</label>
+            <input type="text" 
+            class="form-control"  
+            name="contact" 
+            #contact="ngModel" 
+            required
+            ngModel>
+            <span class="text-danger" *ngIf="contact.touched && contact.hasError('required')">
+                It is required field
+              </span>
+        </div>
+        <button mat-raised-button color="accent" class="btn btn-sm btn-block">Add Student</button>     
+       </form>
+    </mat-card-content>
+</mat-card>
+
+
+
+

@@ -1,0 +1,19 @@
+<mat-card class="mt-4">
+    <mat-card-content>
+        <form #todoForm="ngForm" (ngSubmit)="onTodoAdd()">
+            <div class="form-group">
+                <label for="todoItem">Todo Item</label>
+                <input type="text" 
+                ngModel
+                #todo="ngModel"
+                name="todoItem"
+                class="form-control">
+            </div>   
+            <button mat-raised-button color="accent">Add Todo</button>     
+        </form>
+    </mat-card-content>
+</mat-card>
+
+
+
+

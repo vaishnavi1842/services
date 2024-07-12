@@ -1,0 +1,17 @@
+<ul class="list-group mt-4" *ngIf="todoArr.length>0; else noTodo">
+    <li class="list-group-item" *ngFor="let todo of todoArr">
+            {{todo.todoItem}}
+        <span class="float-right">
+            <button mat-raised-button color="primary" class="mr-2">Edit</button>
+            <button mat-raised-button color="accent"
+            (click)="onRemoveTodo(todo)">Delete</button>
+        </span>
+    </li>
+   
+</ul>
+
+<ng-template #noTodo>
+    <p class="alert alert-primary mt-4">
+        No Todos Added yet..!!
+    </p>
+</ng-template>
